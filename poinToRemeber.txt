@@ -1,0 +1,17 @@
+Array methods
+Map
+find and findIndex
+pop and push
+shift and unshift
+slice and splice
+toSting() - ,  - sepaeated value
+join("||")
+concat() - join 2 or more array
+sort()
+reverse()
+filter()
+some()
+every()
+reduce() - calculate the cumulative sum
+includes()
+indexOf() 
