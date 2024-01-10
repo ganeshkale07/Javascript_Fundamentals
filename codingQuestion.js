@@ -101,7 +101,7 @@ function returnNumberOfVowels(str){
   }
   const inArr = [ {name : "chandhu", age : 99},{name : "Amir", age : 88},{name : "badha", age : 76},{name : "Gopal", age : 14},]
   const keyOnObject = "age";
-console.log(returnSortedArrayOfObjBasedOnKey(inArr,keyOnObject))
+//console.log(returnSortedArrayOfObjBasedOnKey(inArr,keyOnObject))
 
 //Q Implement a deep clone function in JavaScript that creates 
 //a copy of a nested object or array without any reference to the original. 
@@ -109,3 +109,68 @@ console.log(returnSortedArrayOfObjBasedOnKey(inArr,keyOnObject))
 function deepCloneOfObject(givenObj){
     return JSON.parse(JSON.stringify(givenObj));
 }
+
+
+//Debounce function
+const buttonClick = debounceFunction(actualAPICall , dealy = 2000);
+
+function actualAPICall(){
+    console.log("User clicked");
+}
+
+function debounceFunction(funcForAPICall,delay){
+    let timer;
+    return function(){
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            funcForAPICall();
+        }, delay);
+    }
+}
+
+//Q - Implement a function that takes two sorted arrays 
+//and merges them into a single sorted array without using any built-in sorting functions.
+function returnSingleSortedArray(a , b ){
+    let result  = [...a,...b].sort((a,b) => a - b);
+    return result;
+}
+
+//console.log(returnSingleSortedArray([67,89,99],[3,78,91]))
+
+//Write a function that checks if a given string is a palindrome, 
+//considering only alphanumeric characters and ignoring case. 
+function checkGivenStringPalindrome(str){
+    // remember
+    //I forgot to clearn the given string it may contain "Ganeh@%@%#@882398"
+    //[^a-z] find character not between the bracket
+    let finalstr = str.replace(/[^a-zA-Z0-9]/g,'').toLowerCase();
+    return finalstr === finalstr.split('').reverse().join('') ? "Yes" : "No";
+}
+//console.log(checkGivenStringPalindrome("raaa#^@#^#&@@##aaaaar"));
+
+
+//Q - Implement a function that flattens a nested array in JavaScript,
+//converting it into a single-level array. 
+
+function flattenNestedArray(givenArr){
+    return givenArr.flat(Infinity);
+}
+
+
+//Q - Write a function that determines
+//if two strings are anagrams of each other
+function checkGivenStringAnagra(str1,str2){
+    return str1.split('').toLowerCase().sort() ===  str2.split('').toLowerCase().sort() ? "Yes" : "No";
+}
+
+//Q Implement a function to 
+//reverse a string without using the built-in reverse() method.
+function reverseStringWithoutSort(str){
+    let result = '';
+    for(let i = str.length - 1 ; i >= 0 ; i--){
+        result = result.concat(str[i]);
+    }
+    return result;
+}
+
+//console.log(reverseStringWithoutSort("Yoyo"));
