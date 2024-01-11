@@ -174,3 +174,213 @@ function reverseStringWithoutSort(str){
 }
 
 //console.log(reverseStringWithoutSort("Yoyo"));
+
+//TODO- memoization concept
+// Create a JavaScript function that returns the Fibonacci sequence 
+// up to a given number,
+// utilizing memoization for optimized performance. 
+
+
+//TODO - recursion concept
+//Q Write a recursive function to calculate the factorial of a given number. 
+
+function factorial(num) { 
+
+    if (num <= 1) return 1; 
+  
+    return num * factorial(num - 1); 
+  
+  }
+
+
+//9:20 -TODO
+function returnArrayWithoutAnagram(arr){
+    let storage = [],result = [];
+    //arraged word array
+    let arrangedArray = arr.map((ele) => ele.toLowerCase().split('').sort().join(''));
+    arrangedArray.forEach((ele,index) => {
+        if(index === 0){
+            storage.push({ele,index})
+        }else{
+            storage.forEach((obj) => {
+                if(obj.ele === ele){
+                    return
+                }else{
+                    storage.push({ele,index})
+                }
+            })
+        }
+    })
+    console.log(storage)
+    storage.forEach((ele) => result.push(arr[ele.index]))
+    return result;
+}
+
+//console.log(returnArrayWithoutAnagram(["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"]));
+ 
+//TODO
+function filterAnagrams(arr) {
+    const uniqueStrings = new Set();
+    const resultArray = [];
+  
+    for (const str of arr) {
+        console.log([...uniqueStrings])
+      const isAnagramPresent = [...uniqueStrings].some(uniqueStr => areAnagrams(uniqueStr, str));
+  
+      if (!isAnagramPresent) {
+        uniqueStrings.add(str);
+        resultArray.push(str);
+      }
+    }
+  
+    return resultArray;
+  }
+  
+// Helper function to check if two strings are anagrams
+function areAnagrams(str1, str2) {
+return str1.length === str2.length && str1.split('').sort().join('') === str2.split('').sort().join('');
+}
+
+const inputArray = ["listen", "silent", "enlist", "hello", "world"];
+//const resultArray = filterAnagrams(inputArray);
+
+//console.log(resultArray);
+
+//Q - Given an array of numbers, write a function 
+//to find the largest and smallest numbers in the array. 
+function findLargeandSmallInArray(givenArr){
+    //sol - 1
+    givenArr.sort((a,b) => a - b);
+    return {
+        largeNumber : givenArr[givenArr.length - 1],
+        smallNumber : givenArr[0]
+    }
+    //sol - 2
+    // return {
+    //     largeNumber : Math.max(...givenArr),
+    //     smallNumber : Math.min(...givenArr)
+    // }
+}
+
+//console.log(findLargeandSmallInArray([3,88,98,75,14]));
+
+
+//Q - Write a function that takes an array of integers as input 
+//and returns a new array with only the unique elements.
+function uniqueIntergerArray(givenArr){
+    //sol - 1
+    let result = new Set();
+    givenArr.forEach((ele) => result.add(ele));
+    return Array.from(result);
+    //sol -2 
+    // const result = [];
+    // givenArr.forEach((ele,index) => {
+    //     if(index === 0){
+    //         result.push(ele);
+    //     }else{
+    //         if(!result.includes(ele)){
+    //             result.push(ele)
+    //         }
+    //     }
+    // })
+    // return result;
+    //sol - 3 elegant solution
+    //sol - 1
+    // let result = new Set(givenArr);
+    // return Array.from(result);
+}
+//console.log(uniqueIntergerArray([22,22,4,5,64,4,4,4,4,5,6]))
+
+
+
+
+
+
+//Q - Implement a function to find the factorial of a given number.
+function findFactorialOfNumber(num){
+    let result = 1;
+    for(let i = 1 ; i <= num ; i++){
+        result = result * i;
+    }
+    return result;
+    //Elegant way sol - 2
+    // function factorial(number) { 
+    // if (number === 0 || number === 1) return 1; 
+    //     return number * factorial(number - 1); 
+    // } 
+} 
+//console.log(findFactorialOfNumber(0))
+
+//Q - Write a function that determines if a given number is prime or not.
+function isPrime(num){
+    //O is not prime 
+    //1 is not 
+    //2 is only even number which is prime
+    if(num === 0){
+        return "Is Prime";
+    }else if(num === 1){
+        return "Not Prime"
+    }else {
+        for(let i = 2 ; i <= Math.sqrt(num) ; i++){
+            if(num % i === 0){
+                return `Not Prime ${i}`;
+            }
+        }
+        return "Is Prime"
+    }
+}
+//console.log(isPrime(1889))
+
+//Q - Implement a function to find the sum of all the numbers in an array.
+function sumOfAllMember(givenArr){
+    return givenArr.reduce((initial,ele) => initial + ele);
+} 
+
+//console.log(sumOfAllMember([45,85,97,33]))
+
+//Q - Given a string, write a function to count the occurrences 
+//of each character in the string. 
+function allOccuranceOfEachChar(str){
+    let result  = []; emptyStr = '';
+    const sortStr = str.toLowerCase().split('').sort().join();
+    for(let char of sortStr){
+        if(!emptyStr){
+            emptyStr += char;
+        }else{
+            if(emptyStr.includes(char)){
+               emptyStr += char; 
+            }else{
+                result.push({str : emptyStr , occurance : emptyStr.length})
+                emptyStr = '';
+                emptyStr += char;
+            }
+        }
+    }
+    return result;
+}
+
+console.log(allOccuranceOfEachChar("GaneshGaneshhhhhagdddgggg"))
+//Q - Implement a function to remove duplicates from an array. 
+//Q -  Write a function that sorts an array of numbers in ascending order. 
+//Q - Write a function that reverses the order of words 
+//in a sentence without using the built-in reverse() method. 
+//Q - Implement a function that checks if a given string is a palindrome (reads the same forwards and backwards) while ignoring whitespace and punctuation. 
+//Q - Write a function that takes an array of integers and returns the largest difference between any two numbers in the array. 
+//Q - Implement a function that removes duplicates from an array, keeping only the unique elements. 
+//Q - Write a function that accepts a number and returns its factorial (e.g., factorial of 5 is 5 x 4 x 3 x 2 x 1). 
+//Q - Implement a function that flattens a nested array into a single-dimensional array. 
+//Q - Write a function that checks if a given string is an anagram of another string (contains the same characters in a different order). 
+//Q - Implement a function that finds the second smallest element in an array of integers. 
+//Q - Write a function that generates a random alphanumeric string of a given length. 
+//Q -  Implement a function that converts a number to its Roman numeral representation. 
+//Q - Write a function that returns the sum of all numbers in an array. 
+//Q -   Implement a function that finds the maximum number in an array. 
+//Q -   Write a function that returns a new array containing only the unique elements from an input array. 
+//Q -   Implement a function that returns the average value of numbers in an array. 
+//Q -   Write a function that sorts an array of strings in alphabetical order. 
+//Q -   Implement a function that finds the index of a specific element in an array. If the element is not found, the function should return -1. 
+//Q -   Write a function that removes all falsy values (false, null, 0, “”, undefined, and NaN) from an array. 
+//Q -   Implement a function that merges two arrays into a single array, alternating elements from each array. 
+//Q -   Write a function that finds the second largest number in an array. 
+//Q -  Implement a function that groups elements in an array based on a given condition. For example, grouping even and odd numbers into separate arrays. 
+
