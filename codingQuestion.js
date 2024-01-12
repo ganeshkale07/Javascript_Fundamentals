@@ -359,28 +359,111 @@ function allOccuranceOfEachChar(str){
     return result;
 }
 
-console.log(allOccuranceOfEachChar("GaneshGaneshhhhhagdddgggg"))
+//console.log(allOccuranceOfEachChar("GaneshGaneshhhhhagdddgggg"))
 //Q - Implement a function to remove duplicates from an array. 
+function removeDuplicateFromArray(givenArray){
+    console.log(new Set(givenArray))
+    //Remember - Array.from(expect iterable object from which it can create and array)
+    return Array.from(new Set(givenArray));
+}
+//console.log(removeDuplicateFromArray([22,3,3,44,4,44]))
+
 //Q -  Write a function that sorts an array of numbers in ascending order. 
 //Q - Write a function that reverses the order of words 
 //in a sentence without using the built-in reverse() method. 
-//Q - Implement a function that checks if a given string is a palindrome (reads the same forwards and backwards) while ignoring whitespace and punctuation. 
-//Q - Write a function that takes an array of integers and returns the largest difference between any two numbers in the array. 
-//Q - Implement a function that removes duplicates from an array, keeping only the unique elements. 
-//Q - Write a function that accepts a number and returns its factorial (e.g., factorial of 5 is 5 x 4 x 3 x 2 x 1). 
-//Q - Implement a function that flattens a nested array into a single-dimensional array. 
-//Q - Write a function that checks if a given string is an anagram of another string (contains the same characters in a different order). 
-//Q - Implement a function that finds the second smallest element in an array of integers. 
-//Q - Write a function that generates a random alphanumeric string of a given length. 
+function reverseTheSentence(givenStr){
+    //let var = '' -- empty string holder
+    //for loop -- concat string from back side into result
+
+}
+//Q - Implement a function that checks if a given string 
+//is a palindrome (reads the same forwards and backwards) 
+//while ignoring whitespace and punctuation. 
+function checkIfItIsPalindrome(givenStr){
+    let cleanString = givenStr.replace(/^\W/g , '');
+    return cleanString === cleanString.split('').reverse().join('') ? "Palindrome" : "Not Palindrome";
+}
+//console.log(checkIfItIsPalindrome("f@@#@@@$$$ooof"));
+
+//Q - Write a function that takes an array of integers
+// and returns the largest difference between any two numbers in the array. 
+function largestDiffBetArrayEle(){
+    //sort array 
+    //find small and large number
+    //return there difference
+}
+
+//TODO
+//Q - Implement a function that removes duplicates from an array,
+// keeping only the unique elements.
+function removeDuplicateFromProvidedArray(givenArr){
+    // let result = [];
+    // givenArr.forEach((ele,index) => {
+    //     if(index === 0){
+    //         result.push(ele)
+    //     }else{
+    //         if(!result.includes(ele)){
+    //             result.push(ele)
+    //         }
+    //     }
+    // })
+    // return result;
+    // Elegant way
+    return givenArr.filter((ele,index) => givenArr.indexOf(ele) === index)
+}
+//console.log(removeDuplicateFromProvidedArray([22,55,55,88,9]))
+
+
+//Q - Write a function that accepts a number and returns its factorial 
+//(e.g., factorial of 5 is 5 x 4 x 3 x 2 x 1). 
+function returnFactorialOfNum(num){
+    let result =  1;
+    if(num === 0 || num === 1){
+        return 1;
+    }else{
+        for(let i = num ; i <= 2; i--){
+            result *= i;
+        }
+    }
+    return result;
+}
+
+//Q - Implement a function that flattens a nested 
+//array into a single-dimensional array. 
+function flattenArray(givenArr){
+    return givenArr.flat(Infinity);
+}
+//Q - Write a function that checks if a given string
+// is an anagram of another string (contains the same characters in a different order). 
+
+//Q - Implement a function that finds the second smallest 
+//element in an array of integers. 
+
+//Q - Write a function that generates a random 
+//alphanumeric string of a given length. 
+function generateAlphanumericString(givenLength){
+    let str = "abcdefghijklmanopqrstuvwxyz";
+    let result = "";
+    for(let i = 0 ; i < givenLength; i++){
+        if(i % 2 === 0){
+            result += str[Math.floor(Math.random() *  10) + 17];
+        }else{
+            result += Math.floor(Math.random() * 10);
+        }
+    }
+    return result;
+}
+console.log(generateAlphanumericString(33))
+
 //Q -  Implement a function that converts a number to its Roman numeral representation. 
 //Q - Write a function that returns the sum of all numbers in an array. 
-//Q -   Implement a function that finds the maximum number in an array. 
-//Q -   Write a function that returns a new array containing only the unique elements from an input array. 
-//Q -   Implement a function that returns the average value of numbers in an array. 
-//Q -   Write a function that sorts an array of strings in alphabetical order. 
-//Q -   Implement a function that finds the index of a specific element in an array. If the element is not found, the function should return -1. 
-//Q -   Write a function that removes all falsy values (false, null, 0, “”, undefined, and NaN) from an array. 
-//Q -   Implement a function that merges two arrays into a single array, alternating elements from each array. 
-//Q -   Write a function that finds the second largest number in an array. 
-//Q -  Implement a function that groups elements in an array based on a given condition. For example, grouping even and odd numbers into separate arrays. 
+//Q - Implement a function that finds the maximum number in an array. 
+//Q - Write a function that returns a new array containing only the unique elements from an input array. 
+//Q - Implement a function that returns the average value of numbers in an array. 
+//Q - Write a function that sorts an array of strings in alphabetical order. 
+//Q - Implement a function that finds the index of a specific element in an array. If the element is not found, the function should return -1. 
+//Q - Write a function that removes all falsy values (false, null, 0, “”, undefined, and NaN) from an array. 
+//Q - Implement a function that merges two arrays into a single array, alternating elements from each array. 
+//Q - Write a function that finds the second largest number in an array. 
+//Q - Implement a function that groups elements in an array based on a given condition. For example, grouping even and odd numbers into separate arrays. 
 
