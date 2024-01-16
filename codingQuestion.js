@@ -503,16 +503,43 @@ function findIndexOfEle(givenArr, ele){
     // return givenArr.indexOf(ele);
     return givenArr.findIndex((e) => e === ele);
 } 
-console.log(findIndexOfEle([100,300,500,700],700));
+//console.log(findIndexOfEle([100,300,500,700],700));
 
 //Q - Write a function that removes all falsy values
 // (false, null, 0, “”, undefined, and NaN) from an array.
 function removeFalsyValueFromArray(givenArr){
     return givenArr.filter((ele) => !!ele);
 } 
-console.log(removeFalsyValueFromArray([2,4,6,99,0,"",undefined, null,false,55,6,true]));
+//console.log(removeFalsyValueFromArray([2,4,6,99,0,"",undefined, null,false,55,6,true]));
 
-//Q - Implement a function that merges two arrays into a single array, alternating elements from each array. 
-//Q - Write a function that finds the second largest number in an array. 
-//Q - Implement a function that groups elements in an array based on a given condition. For example, grouping even and odd numbers into separate arrays. 
+//Q - Implement a function that merges two arrays into a single array, 
+//alternating elements from each array.
+function insertAlternateElementFromArray(arrayOne,arrayTwo){
+    let result = [];
+    let maxLength = arrayOne.length > arrayTwo.length ? arrayOne.length : arrayTwo.length;
+    for(let i = 0 ;i < maxLength; i++){
+        if(arrayOne[i]){            
+            result.push(arrayOne[i])
+        }
+        if(arrayTwo[i]){
+            result.push(arrayTwo[i])
+        }
+    }
+    return result;
+}
+//console.log(insertAlternateElementFromArray([1,3,5,7],[2,4,6,8]));
+
+//Q - Write a function that finds the second largest number in an array.
+function findSpecifyLargestNumber(givenArr,position = 4){
+    console.log(givenArr.sort((a,b) => a - b ))
+    return givenArr.sort((a,b) => a - b )[(givenArr.length - 1) - (position - 1)];
+} 
+console.log(findSpecifyLargestNumber([1,3,5,7,2,4,6,8], 2 ));
+
+//Q - Implement a function that groups elements in an array 
+//based on a given condition. For example, grouping even and odd numbers
+// into separate arrays. 
+function groupingArrayBasedOnCondition(){
+    //Interview expexting I am aware aboot filter method of array
+}
 

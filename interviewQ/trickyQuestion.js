@@ -243,16 +243,55 @@ function checkPairWithGivenSumExist(givenArr,givenSum){
         })
         return result;
 }
-console.log(checkPairWithGivenSumExist([1,3,4,7,8,9,6,9],15));
+//console.log(checkPairWithGivenSumExist([1,3,4,7,8,9,6,9],15));
+
+let num = 7;
+while(num > 3){
+    console.log(num);
+    num --;
+}
 
 //Q Square each digit of number without using any string function
 function sqEachDigitOfNumber(num){
-    let result = '';
-    for(let ele of num.toString()){
-        result += (parseInt(ele)* parseInt(ele));
+    //converted number into string
+    // let result = '';
+    // for(let ele of num.toString()){
+    //     result += (parseInt(ele)* parseInt(ele));
+    // }
+    // return result;
+    //Elegant way without converting into String
+    let result = 0;
+    let reveresedNumber = reveresedNumberFun(num);
+    while(reveresedNumber > 0){
+        let remainder  = reveresedNumber % 10 ;
+        reveresedNumber = Math.floor(reveresedNumber / 10);
+        const factor = getNumberOfZeros(remainder ** 2);
+        result = result * factor + remainder ** 2;
     }
     return result;
+
+}
+function reveresedNumberFun(num){
+    let result  = 0;
+    while(num > 0 ){
+        let remainder = num % 10;
+        num = Math.floor(num / 10);
+        result = result * 10 + remainder;
+    }
+    return result;
+}
+
+//These function tells how many places are present in given number
+//like 81 - unit and tenth place - 100
+function getNumberOfZeros(num){
+    let n = 1;
+    while(num > 0){
+        n = n * 10;
+        num = Math.floor(num / 10);
+    }    
+    return n;
 }
 console.log(sqEachDigitOfNumber(9191))
 
 //https://rahuulmiishra.medium.com/frequently-asked-frontend-programming-interview-questions-1b77c3dbb96
+
