@@ -453,16 +453,65 @@ function generateAlphanumericString(givenLength){
     }
     return result;
 }
-console.log(generateAlphanumericString(33))
+//console.log(generateAlphanumericString(33))
 
-//Q -  Implement a function that converts a number to its Roman numeral representation. 
-//Q - Write a function that returns the sum of all numbers in an array. 
+//Q -  Implement a function that converts 
+//a number to its Roman numeral representation. 
+function convertGivenNumberToItsRomanFormat(num1){
+    //https://jagathishsaravanan.medium.com/converting-decimal-numbers-to-roman-numerals-with-javascript-a-step-by-step-guide-4a5197d51c2
+}
+
+
+
+//Q - Write a function that returns the sum of all numbers in an array.
+
 //Q - Implement a function that finds the maximum number in an array. 
-//Q - Write a function that returns a new array containing only the unique elements from an input array. 
-//Q - Implement a function that returns the average value of numbers in an array. 
-//Q - Write a function that sorts an array of strings in alphabetical order. 
-//Q - Implement a function that finds the index of a specific element in an array. If the element is not found, the function should return -1. 
-//Q - Write a function that removes all falsy values (false, null, 0, “”, undefined, and NaN) from an array. 
+function MaxNumInArray(givenArray){
+    let maxEle = givenArray[0];
+    givenArray.forEach(ele => {
+        if(maxEle < ele){
+            maxEle = ele ;
+        }
+    })
+    return maxEle;
+}
+//console.log(MaxNumInArray([22,4,5,77,99,233,78]));
+
+//Q - Write a function that returns a new array 
+//containing only the unique elements from an input array.
+function FindUniqueEleInArray(givenArr){
+    return givenArr.filter((ele,i) => givenArr.indexOf(ele) === i)
+}
+//console.log(FindUniqueEleInArray([22,4,4,78,99,233,78]));
+
+
+//Q - Implement a function that returns the average
+// value of numbers in an array. 
+function averageOfEleInArray(givenArr){
+    const sum = givenArr.reduce((total,ele) => total += ele, 0);
+    return (sum / givenArr.length);
+}
+
+//console.log(averageOfEleInArray([100,300,500,700]));
+
+//Q - Write a function that sorts an array 
+//of strings in alphabetical order. 
+
+//Q - Implement a function that finds the index of a specific element
+// in an array. If the element is not found, the function should return -1.
+function findIndexOfEle(givenArr, ele){
+    // return givenArr.indexOf(ele);
+    return givenArr.findIndex((e) => e === ele);
+} 
+console.log(findIndexOfEle([100,300,500,700],700));
+
+//Q - Write a function that removes all falsy values
+// (false, null, 0, “”, undefined, and NaN) from an array.
+function removeFalsyValueFromArray(givenArr){
+    return givenArr.filter((ele) => !!ele);
+} 
+console.log(removeFalsyValueFromArray([2,4,6,99,0,"",undefined, null,false,55,6,true]));
+
 //Q - Implement a function that merges two arrays into a single array, alternating elements from each array. 
 //Q - Write a function that finds the second largest number in an array. 
 //Q - Implement a function that groups elements in an array based on a given condition. For example, grouping even and odd numbers into separate arrays. 
