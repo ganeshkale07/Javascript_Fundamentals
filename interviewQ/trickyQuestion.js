@@ -1,3 +1,8 @@
+//vvvimp
+//FrontEnd intervoew questions
+//https://rahuulmiishra.medium.com/frequently-asked-frontend-programming-interview-questions-1b77c3dbb96
+
+
 //1. Count the occurrence of characters in given string
 function countOccurancesOnlyForCharacterInString(givenStr){
     //Remember - occurance
@@ -245,12 +250,6 @@ function checkPairWithGivenSumExist(givenArr,givenSum){
 }
 //console.log(checkPairWithGivenSumExist([1,3,4,7,8,9,6,9],15));
 
-let num = 7;
-while(num > 3){
-    console.log(num);
-    num --;
-}
-
 //Q Square each digit of number without using any string function
 function sqEachDigitOfNumber(num){
     //converted number into string
@@ -291,7 +290,111 @@ function getNumberOfZeros(num){
     }    
     return n;
 }
-console.log(sqEachDigitOfNumber(9191))
+//console.log(sqEachDigitOfNumber(9191))
 
-//https://rahuulmiishra.medium.com/frequently-asked-frontend-programming-interview-questions-1b77c3dbb96
+/***********PART 1**********/ 
+//https://rahuulmiishra.medium.com/javascript-interview-questions-that-made-me-think-do-i-really-know-javascript-2904588ebd5a
 
+const someObject = {
+    name : "Ganesh"
+}
+//Property added with defineProperty has special beahaviour
+//we can define attribute on these property
+//Value: The actual value of the property.
+//Writable: Indicates whether the property's value can be changed.
+//Enumerable: Specifies whether the property should be included in the iteration of the object's properties.
+//Configurable: Determines whether the property can be deleted or its attributes can be modified.
+
+Object.defineProperty(someObject, "age" , {
+        value: 42,
+        writable: true,
+        enumerable: false,  // This property is non-enumerable
+        configurable: true
+})
+// console.log(someObject.age);
+// console.log(Object.keys(someObject));
+someObject.age = 37;
+
+// console.log(someObject.age);
+
+//******************
+const name = "Ganesh Kale";
+age  = 21;//VVIMP varibale without var let const get attached to window object - so it become proprty of window object that is why we able to delete
+let b;
+// console.log(delete name);//we can only delete properties from object
+// console.log(delete age);
+// console.log(age , b);
+//     O/P - age is not define error
+//age is not define as we delete from window object 
+// console.log(typeof age , b);
+//     O/P - undefined undefined
+//     but typeOf age is undefined WTF 
+
+//*************************** */
+let human = {name : "GANESH"};//X01 - initial reference
+let member = [human];
+human = null;//X02 - we are only setting new reference to person variable
+
+//console.log(member);
+
+//*************************** */
+const exStr = "Silver surfer";
+// console.log(exStr.padStart(14));
+// console.log(exStr.padStart(2));
+
+//*************************** */
+// [1,2,3,4].reduce((x,y) => console.log(x,y), 300);
+// [1,2,3,4].reduce((x,y) => console.log(x,y));
+//by default x y will be first and second element of array
+//*************************** */
+function tellSomethingAboutHero(one, two, three){
+    console.log(one);
+    console.log(two);
+    console.log(three);
+}
+const heroName = "Black panther";
+const Heroage = 1000;
+// tellSomethingAboutHero `${heroName} is ${Heroage} old`;
+// tellSomethingAboutHero `Did you noticed how value get passed`;
+
+//*************************** */
+
+(() =>{
+    let x,y;
+    try{
+        throw new Error();
+    }catch(x){
+        (x = 1) , (y = 2);//HOW these part work - syntactically it is not right
+        console.log(x)
+    }
+    console.log(x);
+    console.log(y);
+});
+//*************************** */
+function foothree(){
+
+}
+// console.log(typeof foothree);
+
+class People{
+
+}
+// console.log(typeof People);
+//classes are funtion in javascript
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
+//*************************** */
