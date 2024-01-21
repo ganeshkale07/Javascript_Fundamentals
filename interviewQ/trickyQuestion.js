@@ -103,26 +103,60 @@ Function.prototype.myFirstPolyFillForBindMethod = function (givenObject, ...arg)
 
 //Q Find nth Largest and Smallest number
 function findNthLargestInteger(givenArr, position){
-    givenArr.sort((a,b) => (b>a ? 1 :b < a ? -1 : 0));
+    givenArr.sort((a,b) => (b>a ? 1 : b < a ? -1 : 0));
     return givenArr[position - 1];
 }
 
 //Q - Pollyfill of Promise.all()
 const promiseOne = () => new Promise((res,rej) => {
     setTimeout(() => {
-        console.log("hI");
+        console.log("into first promise");
         res("promiseOne Resolved");} , 2000)
 })
-
-
 
 const promiseTwo = () => new Promise((res,rej) => {
     setTimeout(() => res("promiseOne Resolved") , 5000)
 })
-
-
 //Promise.all([promiseOne(),promiseTwo()]).then(() => alert("Resolved")).catch(() => alert("Reject"))
 
+function customAllMethod (promiseArray) {
+    let result = [];
+    let totalPromiseResolved = 0;
+    return new Promise((resolve,rej) => {
+        promiseArray.forEach((eachProm) => {
+            eachProm.then(res => {
+                result.push(res);
+                totalPromiseResolved++;
+                if(totalPromiseResolved === promiseArray.length){
+                    resolve(result);
+                }
+
+            }).catch(error => {
+                rej(error)
+            })
+        })
+    })
+    
+    
+}
+
+//customAllMethod([promiseOne(),promiseTwo()]).then((val) => console.log(val)).catch(() => alert("Reject"))
+
+//Q Flat a given array with and without level control
+
+function flatNestedArray(complexArray){
+    // let result = [];
+    // complexArray.forEach((ele) => {
+    //     if(Array.isArray(ele)){
+    //         ele.forEach()
+    //     }else{
+    //        result.push(ele); 
+    //     }
+    // })
+
+    return complexArray.flat(Infinity);
+}
+console.log(flatNestedArray([2,3,[4,5,6,7], [4,6, [7,8,9]]]))
 [2,3,[3,4,5],[7,77,[8,9,[33,44,55],10]]]
 
 //VVVIMP
