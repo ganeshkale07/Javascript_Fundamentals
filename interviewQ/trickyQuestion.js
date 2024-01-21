@@ -156,8 +156,8 @@ function flatNestedArray(complexArray){
 
     return complexArray.flat(Infinity);
 }
-console.log(flatNestedArray([2,3,[4,5,6,7], [4,6, [7,8,9]]]))
-[2,3,[3,4,5],[7,77,[8,9,[33,44,55],10]]]
+//console.log(flatNestedArray([2,3,[4,5,6,7], [4,6, [7,8,9]]]))
+//[2,3,[3,4,5],[7,77,[8,9,[33,44,55],10]]]
 
 //VVVIMP
 // Flat a given array with and without level control
@@ -416,8 +416,43 @@ class People{
 // console.log(typeof People);
 //classes are funtion in javascript
 //*************************** */
+let someArr = [2,34,[7,8,9],[99]];
+//console.log(someArr.toString());
+//O/P - [2,34,7,8,9,99] it will flatten the array
 //*************************** */
+//TODO
+let Obj = {
+    lang : "Marathi",
+    showYourLang : () => {
+        console.log(`I Know ${this.lang}`);
+    }
+}
+function show(){
+    this.lang = 'Vue';
+    this.showLang = () => {
+        console.log(this.lang);
+    }
+}
+Obj.showYourLang();
+const x = new show();
+x.showLang();
+//O/P - I know undefined
+//because arrow function do not get attached to object where it is defined
+//This Keyword depend upon where it is invoked 
+
 //*************************** */
+
+let rt = Promise.resolve(1);
+let rt2 = Promise.resolve(2);
+
+rt.then(console.log);
+rt.then(console.log);
+
+rt2.then((e) => {
+    console.log(e);
+    resolve(e);
+}).then(console.log);
+
 //*************************** */
 //*************************** */
 //*************************** */
