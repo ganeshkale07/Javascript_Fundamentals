@@ -454,7 +454,31 @@ rt2.then((e) => {
 }).then(console.log);
 
 //*************************** */
+//.length property on function
+
+function makeIce(flavor ,temp){
+
+}
+
+function makeCream(flavor , color , temp , price =9){
+
+}
+
+// console.log(makeCream.prototype);
+
+// console.log(makeIce.length);
+// console.log(makeCream.length);
 //*************************** */
+
+let objectOne = { 1 : "Ganesh"};
+let setOfNum = new Set([1,2,3,4,5]);
+//for normal object javascript store key as string
+//so even if we pass objectOne[1] it will convert it into objectOne['1']
+//console.log(objectOne.hasOwnProperty(1));
+//console.log(objectOne.hasOwnProperty('1'));
+//console.log(setOfNum.has(1));
+//console.log(setOfNum.has('1'));
+//console.log(setOfNum.has('1'));
 //*************************** */
 //*************************** */
 //*************************** */
