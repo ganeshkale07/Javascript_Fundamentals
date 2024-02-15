@@ -399,10 +399,10 @@ const Heroage = 1000;
         throw new Error();
     }catch(x){
         (x = 1) , (y = 2);//HOW these part work - syntactically it is not right
-        console.log(x)
+        //console.log(x)
     }
-    console.log(x);
-    console.log(y);
+   // console.log(x);
+   // console.log(y);
 });
 //*************************** */
 function foothree(){
@@ -433,9 +433,9 @@ function show(){
         console.log(this.lang);
     }
 }
-Obj.showYourLang();
+//Obj.showYourLang();
 const x = new show();
-x.showLang();
+//x.showLang();
 //O/P - I know undefined
 //because arrow function do not get attached to object where it is defined
 //This Keyword depend upon where it is invoked 
@@ -445,13 +445,13 @@ x.showLang();
 let rt = Promise.resolve(1);
 let rt2 = Promise.resolve(2);
 
-rt.then(console.log);
-rt.then(console.log);
+//rt.then(console.log);
+//rt.then(console.log);
 
 rt2.then((e) => {
-    console.log(e);
-    resolve(e);
-}).then(console.log);
+    //console.log(e);
+})
+//.then(console.log);
 
 //*************************** */
 //.length property on function
@@ -480,9 +480,53 @@ let setOfNum = new Set([1,2,3,4,5]);
 //console.log(setOfNum.has('1'));
 //console.log(setOfNum.has('1'));
 //*************************** */
+
+//part  3 - https://rahuulmiishra.medium.com/javascript-interview-questions-that-made-me-think-do-i-really-know-javascript-part-3-e9febba342b4
+let givenArray = [10,6,7,3];
+//console.log(givenArray.sort()); // [10,3,6,7]
+//By default, sort method performs sorting by converting the numbers into strings.
+//Then it compares their sequences of UTF-16 code unit values.
 //*************************** */
+
+//part4 - https://rahuulmiishra.medium.com/javascript-interview-questions-that-made-me-think-do-i-really-know-javascript-part-4-c7186d35f199
+//VVIMP
+function foo(){
+    return foo;
+}
+let newObj = new foo();
+//console.log(newObj); //it should hold function definition
+//console.log(newObj instanceof foo);
 //*************************** */
+
+let c = 1;
+if(function f(){}){
+    //c+=f;
+}
+//console.log(c);
+//Note : function in parenthesis are not hoisted at top of code ( NOT HOISTED )
+
+//POINT TO REMEMBER 
+//1 + "33" --34
+//1 + "Ganesh" --NaN
+//"33" + "33" -- "3333"
+//"Ganesh" + 33 --"Ganesh33"
+//"Ganesh" + undefined --"GaneshUndefined"
+
 //*************************** */
+console.log(fg, se);
+fg(22);
+se();
+function fg(a){
+    console.log("I am func declaration");
+    console.log( yo , Object.values(arguments))
+    let initialVal = 98;
+    function yo (){
+        console.log("Function inside another function");
+    }
+}
+var se = function (){
+    console.log("I am func expression")
+}
 //*************************** */
 //*************************** */
 //*************************** */
