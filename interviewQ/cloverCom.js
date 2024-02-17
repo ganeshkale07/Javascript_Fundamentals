@@ -1,3 +1,4 @@
+/**** Programming Question 1 start ****/
 //Question 3 1004
 let given  = {
      menu_items: [{
@@ -35,7 +36,9 @@ let allChildModuleHolder = given.menu_items.map((ele) => ele.childModule);
 let res = given.menu_items.filter(ele => !allChildModuleHolder.includes(ele.parentModule));
 
 console.log("Question 1004" , new Set(res.map(ele => ele.parentModule)));
+/**** Programming Question 1 end ****/
 
+/**** Programming Question 2 start ****/
 //Question 4 1006
 //create an array with n number of elements.
 //where insertion should happen at the end of the array. once the array is full instead of
@@ -58,7 +61,9 @@ function createAnArray(size, givenArrEle){
 }
 
 console.log("Question 1006" ,createAnArray(5, [1,2,3,4,5,6,7,8,9,10]));
+/**** Programming Question 2 end ****/
 
+/**** Programming Question 3 start ****/
 //Question 5 1009 
 //On specified date what is occurance of severity
 let givenObj = {
@@ -241,7 +246,9 @@ new Set(listOfLastFoundDate.flat()).forEach(ele => {
 })
 
 console.log("Question 1009" ,result)
+/**** Programming Question 3 end ****/
 
+/**** Programming Question 4 start ****/
 //Question 6 1010
 //Given collection of numbers  find a matching pair that is equal to sum
 
@@ -272,6 +279,9 @@ console.log("Question 1010 2" ,findPairWhoseSumIsGivenNumber([1,5,3,6,8],9));
 console.log("Question 1010 3" ,findPairWhoseSumIsGivenNumber([10,20,15,3,7],25));
 console.log("Question 1010 4" ,findPairWhoseSumIsGivenNumber([1,2,3,4,5],10));
 
+/**** Programming Question 4 end ****/
+
+/**** Programming Question 5 start ****/
 //Question2 1003
 let givenObject2 = {input: [
         {
@@ -345,7 +355,9 @@ contentWithReplyNull.forEach(ele => {
     })
 })
 console.log("Q1003" , finalOutput)
+/**** Programming Question 5 end ****/
 
+/**** Programming Question 6 start ****/
 // Question 1002. Write a program to generate following output on the basis of following input
 // Input:
 // [11,1000,1004,1275,10005,10177,10240,10641,10903,11495,11628,15629,18630,21631,21680,23745,24827,28828,33955,44087,48755,50073]
@@ -379,3 +391,4 @@ function sortNumberOnBasisRange(givenArray){
 }
 
 console.log("Question 1002" ,sortNumberOnBasisRange([11,1000,1004,1275,10005,10177,10240,10641,10903,11495,11628,15629,18630,21631,21680,23745,24827,28828,33955,44087,48755,50073]))
+/**** Programming Question 6 end ****/
